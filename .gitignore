@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+.idea
+**/*.map
+.compiled
+server/** 
+server/
+server/tester.coffee

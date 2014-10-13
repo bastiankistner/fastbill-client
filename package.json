@@ -2,6 +2,7 @@
   "name": "fastbill-client",
   "version": "0.0.1",
   "description": "",
+  "private": "true",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +12,10 @@
     "url": "git@bitbucket.org:sonsana/fastbill-client.git"
   },
   "author": "Bastian Kistner",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "q": "^1.0.1",
+    "request": "^2.45.0"
+  }
 }
