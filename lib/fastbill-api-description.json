@@ -1,0 +1,52 @@
+ {
+    "endpoint": "https://my.fastbill.com/api/1.0/api.php",
+    "services": {
+        "customer": {
+            "get_filter": ["CUSTOMER_ID", "CUSTOMER_NUMBER", "COUNTRY_CODE", "CITY", "TERM"],
+            "verbs": ["create", "get", "update", "delete"]
+        },
+        "estimate": {
+            "get_filter": ["ESTIMATE_ID", "CUSTOMER_ID", "ESTIMATE_NUMBER", "START_ESTIMATE_DATE", "END_ESTIMATE_DATE"],
+            "verbs": ["create", "get", "delete", "sendbyemail", "createinvoice"]
+        },
+        "invoice": {
+            "get_filter": ["INVOICE_ID", "INVOICE_NUMBER", "INVOICE_TITLE", "CUSTOMER_ID", "MONTH", "YEAR", "START_DUE_DATE", 
+                           "END_DUE_DATE", "STATE", "TYPE"],
+            "verbs": ["create", "get", "update", "delete", "complete", "cancel", "sign", "sendbyemail", "sendbypost", "setpaid"]
+        },
+        "item": {
+            "get_filter": "INVOICE_ID",
+            "verbs": ["get", "delete"]
+        },
+        "recurring": {
+            "get_filter": ["INVOICE_ID", "INVOICE_NUMBER", "INVOICE_TITLE", "CUSTOMER_ID", "MONTH", "YEAR", "START_DUE_DATE",
+                   "END_DUE_DATE", "STATE", "TYPE"],
+            "verbs": ["create", "get", "update", "delete"]
+        },
+        "revenue": {
+            "get_filter": ["INVOICE_ID", "INVOICE_NUMBER", "INVOICE_TITLE", "CUSTOMER_ID", "MONTH", "YEAR", "START_DUE_DATE",
+                   "END_DUE_DATE", "STATE", "TYPE"],
+            "verbs": ["create", "get", "update", "delete"]
+        },
+        "expense": {
+            "get_filter": ["INVOICE_ID", "INVOICE_NUMBER", "MONTH", "YEAR"],
+            "verbs": ["create", "get"]
+        },
+        "article": {
+            "get_filter": ["ARTICLE_NUMBER"],
+            "verbs": ["create", "get", "update", "delete"]
+        },
+        "document": {
+            "verbs": ["create"]
+        },
+        "project": {
+            "get_filter": ["PROJECT_ID", "CUSTOMER_ID"],
+            "verbs": ["create", "get", "update", "delete"]
+        },
+        "time": {
+            "get_filter": ["TIME_ID", "CUSTOMER_ID", "PROJECT_ID", "TASK_ID", "START_DATE", "END_DATE", "DATE"],
+            "verbs": ["create", "get", "update", "delete"]
+        }
+    } 
+ }
+    
