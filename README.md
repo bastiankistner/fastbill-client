@@ -15,7 +15,7 @@ fastbill = require('fastbill-client');
 fastbill.bootstrap(username, password);
 ```
 
-### Accessing fastbills API
+### Accessing fastbill's API
 After the client has set authentication details, it can be used by simply calling 
 ```js
 fastbill.api.entity.verb
