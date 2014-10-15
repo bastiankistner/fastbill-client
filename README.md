@@ -188,5 +188,4 @@ API COVERAGE
      delete: [Function] 
     } 
   }
-
 ```
