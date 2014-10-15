@@ -48,7 +48,7 @@ fastbill.api.invoice.getById(["ID1", "ID2", "ID3"], limit, offset)
 All other methods besides previously mentioned getters, accept a data object only that must reflect fastbill's API specification. 
 
 ```js
-fastbill.api.invoice.create({"CUSTOMER_ID": "XXXXXX", "ITEMS": [{"ARTICLE_NUMBER": "1", "QUANTITY": "4"}])
+fastbill.api.invoice.create({"CUSTOMER_ID": "XXXXXX", "ITEMS": [{"ARTICLE_NUMBER": "1", "QUANTITY": "4"}]})
 ```
 
 
