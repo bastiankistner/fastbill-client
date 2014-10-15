@@ -51,6 +51,32 @@ All other methods besides previously mentioned getters, accept a data object onl
 fastbill.api.invoice.create({"CUSTOMER_ID": "XXXXXX", "ITEMS": [{"ARTICLE_NUMBER": "1", "QUANTITY": "4"}]})
 ```
 
+### Promised example
+```js
+fastbill.api.invoice.create({
+  "CUSTOMER_ID": "1016354"
+  "ITEMS": [
+    {
+      "ARTICLE_NUMBER": "1",
+      "QUANTITY": 3
+    }
+  ]  
+}).then(
+  (result) ->
+    console.log result
+  (err) ->
+    console.log err
+)
+
+fastbill.api.invoice.getByNumber("3").then(
+  (result) ->
+    console.log result
+  (err) ->
+    console.log err
+)
+```
+
+
 
 API COVERAGE
 ----------
