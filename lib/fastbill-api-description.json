@@ -14,8 +14,8 @@
                            "END_DUE_DATE", "STATE", "TYPE"],
             "verbs": ["create", "get", "update", "delete", "complete", "cancel", "sign", "sendbyemail", "sendbypost", "setpaid"]
         },
-        "item": {
-            "get_filter": "INVOICE_ID",
+        "item": {     
+            "get_filter": ["INVOICE_ID"],
             "verbs": ["get", "delete"]
         },
         "recurring": {
