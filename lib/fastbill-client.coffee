@@ -8,7 +8,7 @@ api_description = JSON.parse(fs.readFileSync(__dirname + '/fastbill-api-descript
 
 api = {}
 credentials = null
-
+ 
 
 # ===========================================================================================
 # HELPERS 
