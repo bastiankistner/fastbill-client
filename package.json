@@ -1,18 +1,26 @@
 {
   "name": "fastbill-client",
   "version": "0.0.1",
-  "description": "",
-  "private": "false",
+  "description": "Promise based Fastbill client in node.js with additional convenience methods",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/passionkind"
+    "url": "git@github.com:passionkind/fastbill-client"
+  },
+  "keywords": [
+    "fastbill",
+    "api",
+    "client",
+    "generator"
+  ],
+  "bugs": {
+    "url": "https://github.com/passionkind/fastbill-client/issues"
   },
   "author": "Bastian Kistner",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "coffee-script": "^1.8.0",
     "lodash": "^2.4.1",

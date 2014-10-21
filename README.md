@@ -1,7 +1,7 @@
 fastbill-client
 ===============
 
-Promised based Fastbill client in node.js
+Promise based Fastbill client in node.js with additional convenience methods
 
 RESTful API-Client for Fastbill that covers all existing interfaces by using a descriptor file. Based on the descriptor, the module generates a node-style API by using Q's promise implementation, request module and lodash.
 
