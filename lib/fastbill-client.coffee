@@ -42,7 +42,7 @@ createQueryFunction = (payload, entityName) ->
       body = JSON.parse(body)
       
       # return errors if there are any
-      if body.errors then return deferred.reject body["RESPONSE"]["ERRORS"]
+      if body.RESPONSE && body.RESPONSE.ERRORS then return deferred.reject body["RESPONSE"]["ERRORS"]
         
       # if a get service was used, return entity array by using entityName appended by "S"
       if entityName then return deferred.resolve body["RESPONSE"]["#{entityName.toUpperCase()}S"]
