@@ -4,14 +4,14 @@ q       = require 'q'
 _       = require 'lodash'
 
 # parse descriptor file
-api_description = JSON.parse(fs.readFileSync(__dirname + '/fastbill-api-description.json', 'utf8'))
+api_description = require './fastbill-api-description.json'
 
 api = {}
 credentials = null
- 
+
 
 # ===========================================================================================
-# HELPERS 
+# HELPERS
 
 formatString = (a = "") ->
   return a.substr(0,1).toUpperCase() + a.substr(1, a.length).toLowerCase()
@@ -24,7 +24,7 @@ createAccessorFromArray = (array) ->
 
 
 createQueryFunction = (payload, entityName) ->
-  
+
   deferred = q.defer()
   if !credentials then deferred.reject "Credentials not set"
 
@@ -34,28 +34,28 @@ createQueryFunction = (payload, entityName) ->
     #   "X": "message"
     # }
     # whereas X := error number and message := error message
-    
+
     # replicate fastbill error behavior for request module
     if err then return deferred.reject {"REQUEST_ERROR": err}
     else
       # parse body to JSON object
       body = JSON.parse(body)
-      
+
       # return errors if there are any
       if body.RESPONSE && body.RESPONSE.ERRORS then return deferred.reject body["RESPONSE"]["ERRORS"]
-        
+
       # if a get service was used, return entity array by using entityName appended by "S"
       if entityName then return deferred.resolve body["RESPONSE"]["#{entityName.toUpperCase()}S"]
-        
+
       # if any other method was used (create, update, delete or e.g. setpaid)
       else return deferred.resolve JSON.parse(body)["RESPONSE"]
-    
+
   return deferred.promise
 
-  
-  
+
+
 # ===========================================================================================
-# GENERATE API 
+# GENERATE API
 _.forEach api_description.services, (entityObject, entityName) ->
 
   serviceAPI = {}
@@ -77,7 +77,7 @@ _.forEach api_description.services, (entityObject, entityName) ->
       # method B) serviceName.get(filterValueOrValueArray) ==> only filter
       # method B1) serviceName.get(filterValueOrValueArray, offset, limit) ==> no additional filter
       # whereas both specify "service": "serviceName.get"
-      # 
+      #
       # additions for A1 = filter, offset, limit
       # {
       #   service: "serviceName.get"
@@ -90,7 +90,7 @@ _.forEach api_description.services, (entityObject, entityName) ->
       # if the filterField contains the serviceName, we strip it out and offer BOTH methods (with and without the serviceName)
       # e.g.: customer.getById and customer.getByCustomerId
       # e.g.: customer.getByNumber and customer.getByCustomerNumber
-      # 
+      #
 
       # create convenience accessors
 
@@ -116,7 +116,7 @@ _.forEach api_description.services, (entityObject, entityName) ->
         # check if Accessor contains serviceName and strip it out and create convenience method
         length = fieldPartials.length
         fieldPartials = _.pull fieldPartials, entityName.toUpperCase()
-  
+
         if length != fieldPartials.length then getAccessors.push({accessor: createAccessorFromArray(fieldPartials), filter: fieldName})
 
       _.forEach getAccessors, (accessorObject) ->
@@ -128,13 +128,13 @@ _.forEach api_description.services, (entityObject, entityName) ->
             filter: {}
 
           payload.filter["#{accessorObject.filter}"] = filterValueOrValueArray
-        
+
           return createQueryFunction(payload, entityName)
-     
+
   api[entityName] = serviceAPI
 
 
-module.exports = 
+module.exports =
   api: api
   bootstrap: (username, password) ->
     if username and password then return credentials = {"user": username, "pass": password}
