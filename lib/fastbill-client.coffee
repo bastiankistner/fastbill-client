@@ -48,7 +48,7 @@ createQueryFunction = (payload, entityName) ->
       if entityName then return deferred.resolve body["RESPONSE"]["#{entityName.toUpperCase()}S"]
 
       # if any other method was used (create, update, delete or e.g. setpaid)
-      else return deferred.resolve JSON.parse(body)["RESPONSE"]
+      else return deferred.resolve body["RESPONSE"]
 
   return deferred.promise
 
