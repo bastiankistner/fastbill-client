@@ -10,11 +10,11 @@
             "verbs": ["create", "get", "delete", "sendbyemail", "createinvoice"]
         },
         "invoice": {
-            "get_filter": ["INVOICE_ID", "INVOICE_NUMBER", "INVOICE_TITLE", "CUSTOMER_ID", "MONTH", "YEAR", "START_DUE_DATE", 
+            "get_filter": ["INVOICE_ID", "INVOICE_NUMBER", "INVOICE_TITLE", "CUSTOMER_ID", "MONTH", "YEAR", "START_DUE_DATE",
                            "END_DUE_DATE", "STATE", "TYPE"],
             "verbs": ["create", "get", "update", "delete", "complete", "cancel", "sign", "sendbyemail", "sendbypost", "setpaid"]
         },
-        "item": {     
+        "item": {
             "get_filter": ["INVOICE_ID"],
             "verbs": ["get", "delete"]
         },
@@ -46,7 +46,10 @@
         "time": {
             "get_filter": ["TIME_ID", "CUSTOMER_ID", "PROJECT_ID", "TASK_ID", "START_DATE", "END_DATE", "DATE"],
             "verbs": ["create", "get", "update", "delete"]
+        },
+        "template": {
+            "get_filter": ["TAGS"],
+            "verbs": ["get"]
         }
-    } 
+    }
  }
-    
