@@ -1,6 +1,6 @@
 {
-  "name": "fastbill-client",
-  "version": "0.1.1",
+  "name": "fastbill-api",
+  "version": "0.1.2",
   "description": "Promise based Fastbill client in node.js with additional convenience methods",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:passionkind/fastbill-client"
+    "url": "git@github.com:CodeLoversAt/fastbill-client.git"
   },
   "keywords": [
     "fastbill",

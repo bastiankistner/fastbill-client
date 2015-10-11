@@ -3,6 +3,8 @@ fastbill-client
 
 Promise based Fastbill client in node.js with additional convenience methods
 
+This is a fork of [https://github.com/passionkind/fastbill-client](https://github.com/passionkind/fastbill-client) which [has a pending PR](https://github.com/passionkind/fastbill-client/pull/2) that doesn't get merged. Hence a re-publish to npm is needed to get the updated code.
+
 RESTful API-Client for Fastbill that covers all existing interfaces by using a descriptor file. Based on the descriptor, the module generates a node-style API by using Q's promise implementation, request module and lodash.
 
 API USAGE
