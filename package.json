@@ -1,5 +1,5 @@
 {
-  "name": "fastbill-client",
+  "name": "fastbill-api",
   "version": "0.1.2",
   "description": "Promise based Fastbill client in node.js with additional convenience methods",
   "main": "index.js",
